@@ -1,0 +1,8 @@
+fastapi
+uvicorn[standard]
+playwright
+psutil
+httpx
+python-dotenv
+pyyaml
+python-dateutil
