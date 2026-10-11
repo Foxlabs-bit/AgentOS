@@ -1,5 +1,6 @@
 ---
 name: git-workflow
+mode: dev
 description: Safe local git workflow - branch, commit, review diff, and push.
 ---
 1. Run git status and git diff to see what changed before committing.

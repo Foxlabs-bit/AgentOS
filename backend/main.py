@@ -332,7 +332,7 @@ async def scrape_veracross():
                         info = "## " + str(c["course"]) + " | ERROR " + str(e)
                     finally:
                         await pg.close()
-                    return dict(c, course=cp or c["course"]), rows, info
+                    return dict(c, course=(c["course"] if c.get("course") and not str(c["course"]).startswith("Class ") else (cp or c["course"]))), rows, info
 
             results = await asyncio.gather(*(one(i, c) for i, c in enumerate(classes)))
             for c, rows, info in results:
@@ -711,6 +711,11 @@ async def chat(b: ChatBody):
         yield sse({"done": True})
 
     return StreamingResponse(gen(), media_type="text/event-stream", headers={"Cache-Control": "no-cache", "X-Accel-Buffering": "no"})
+
+import agentos_ext
+agentos_ext.setup(app, globals())
+import agentos_files
+agentos_files.setup(app, globals())
 
 @app.middleware("http")
 async def no_cache(request, call_next):

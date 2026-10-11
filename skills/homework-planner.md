@@ -1,5 +1,6 @@
 ---
 name: homework-planner
+mode: school
 description: Turn the current homework list into a prioritized day-by-day study plan.
 ---
 1. List every unfinished assignment ordered by due date.

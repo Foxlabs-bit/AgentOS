@@ -1,5 +1,6 @@
 ---
 name: note-structuring
+mode: school
 description: Restructure raw class notes into headings, key terms, and review questions.
 ---
 1. Group the notes by topic under clear headings.
